@@ -17,11 +17,11 @@ fi
 
 # Our user must have rights to the "docker" group.
 
-#if ! echo "$(groups)" | grep -q docker
-#then
-#    sudo adduser vagrant docker
-#    exec newgrp docker < ./build.sh
-#fi
+if ! echo "$(groups)" | grep -q docker
+then
+    sudo adduser vagrant docker
+    exec newgrp docker < ./build.sh
+fi
 
 # Generate an SSH identity pubic/private keypair that can be installed
 # on all of the playground hosts, so users can SSH between them without
